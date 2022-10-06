@@ -1,0 +1,17 @@
+#version 330 core
+out vec4 FragColor;
+
+in vec3 ourColor;
+in vec2 TexCoord;
+
+// texture sampler
+// 采样器
+// uniform sampler2D 把一个纹理添加到片段着色器中
+uniform sampler2D texture1;
+uniform sampler2D texture2;
+
+void main()
+{
+    // GLSL内建的mix函数需要接受两个值作为参数，并对它们根据第三个参数进行线性插值
+    FragColor = mix(texture(texture1, TexCoord), texture(texture2, TexCoord), 0.8);
+}
