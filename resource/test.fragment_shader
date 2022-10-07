@@ -1,0 +1,19 @@
+#version 330 core
+out vec4 FragColor;
+
+in vec3 ourColor;
+in vec2 TexCoord;
+
+// texture sampler
+// 采样器
+// uniform sampler2D 把一个纹理添加到片段着色器中
+uniform sampler2D texture1;
+
+void main()
+{
+    // 使用GLSL内建的texture函数来采样纹理的颜色
+    // 第一个参数是纹理采样器，第二个参数是对应的纹理坐标
+    FragColor = texture(texture1, TexCoord);
+    // 还可以把得到的纹理颜色与顶点颜色混合，来获得更有趣的效果
+    // FragColor = texture(ourTexture, TexCoord) * vec4(ourColor, 1.0);
+}
